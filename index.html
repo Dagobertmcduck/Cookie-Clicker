@@ -84,46 +84,7 @@ body {
                alert("Oeps!  Het lijkt er op dat je niet genoeg koekjes hebt om je CPS te upgraden. Het upgraden van je CPS kost "+AutoClickerCost+" wat "+(AutoClickerCost-cookieClicks)+" meer is dan dat je nu hebt.")
            }
        }
-       //Purchase Grandma and remove Cookie Cost.
-       function getGrandma(){
-           if(cookieClicks >= GrandmaCost){
-               Grandmas++;
-               cookieClicks -= GrandmaCost;
-               GrandmaCost += Math.floor(GrandmaCost*.3);
-           }else{
-               alert("Oh No!  It appears you do not have enough cookies to purchase a Grandma.  A Grandma currently costs "+GrandmaCost+" which is "+(GrandmaCost-cookieClicks)+" more cookies than you have.")
-           }
-       }
-       //Purchase Farm and remove Cookie Cost.
-       function getFarm(){
-           if(cookieClicks >= FarmCost){
-               Farms++;
-               cookieClicks -= FarmCost;
-               FarmCost += Math.floor(FarmCost*.3);
-           }else{
-               alert("Oh No!  It appears you do not have enough cookies to purchase a Farm.  A Farm currently costs "+FarmCost+" which is "+(FarmCost-cookieClicks)+" more cookies than you have.")
-           }
-       }
-       //Purchase Factory and remove Cookie Cost.
-       function getFactory(){
-           if(cookieClicks >= FactoryCost){
-               Factories++;
-               cookieClicks -= FactoryCost;
-               FactoryCost += Math.floor(FactoryCost*.3);
-           }else{
-               alert("Oh No!  It appears you do not have enough cookies to purchase a Factory.  A Factory currently costs "+FactoryCost+" which is "+(FactoryCost-cookieClicks)+" more cookies than you have.")
-           }
-       }
-       //Purchase Mine and remove Cookie Cost.
-       function getMine(){
-           if(cookieClicks >= MineCost){
-               Mines++;
-               cookieClicks -= MineCost;
-               MineCost += Math.floor(MineCost*.3)
-           }else{
-               alert("Oh No!  It appears you do not have enough cookies to purchase a Mine.  A Mine currently costs "+MineCost+" which is "+(MineCost-cookieClicks)+" more cookies than you have.")
-           }
-       }
+
        //Main Game loop updating Cookie Totals from AUTOCLICKER ONLY!
 var AutoClickTimer = setInterval(function () {AutoClickCookie()}, 2000);
        function AutoClickCookie(){
@@ -150,7 +111,7 @@ var AllStructureTimer = setInterval(function(){StructureCookie},1000)
             document.getElementById("FactoryCookieCost").innerHTML = FactoryCost;
             document.getElementById("MineCookieCost").innerHTML = MineCost;
        }
-        
+
         //Hieronder staan de achtergrond instellingen.
 </script>
     </div>
@@ -171,6 +132,8 @@ var AllStructureTimer = setInterval(function(){StructureCookie},1000)
         
         <button class ="greenButton" type ="button" onClick="bgGreen()">Groen</button>
         
+        <button class ="pinkButton" type ="button" onClick="bgPink()">Roze</button>
+        
         
         
         <script type="text/javascript">
@@ -187,6 +150,9 @@ var AllStructureTimer = setInterval(function(){StructureCookie},1000)
         document.body.style.backgroundColor = "darkblue";
         }
         function bgGreen () {
+        document.body.style.backgroundColor = "darkgreen";
+        }
+        function bgPinkg () {
         document.body.style.backgroundColor = "darkgreen";
         }
         </script>
