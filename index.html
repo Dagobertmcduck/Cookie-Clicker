@@ -39,7 +39,7 @@
  
     <h1 id="CookieAmount"></h1>
     <h2 id="CookiePerSecond"></h2>
-    <div id="cookie" style="cursor:pointer" onclick="cookieClicked();"><img src="https://lwszolek.weebly.com/uploads/5/3/1/1/53114231/5840351.png?250" height="250px"></div>
+    <div id="cookie" style="cursor:pointer" onclick="cookieClicked();"><img id="imageid" src="https://cdn.shopify.com/s/files/1/1540/1281/products/oatmeal-raisin_358906fe-5909-4a1a-b3d9-ebb53b0df2ab_2048x.png?v=1530817809" height="200px"></div>
     <br><br>
     <button onclick="getAutoClicker();">Upgrade CPS voor <span id="AutoClickCookieCost"></span> koekjes</button>
     <p>Gebruik de knop hierboven om het aantal automatische koekjes per seconde te upgraden.<br> U kunt dit kopen voor het aantal koekjes wat op de knop vermeld staat.</p>
@@ -110,8 +110,6 @@
  
         //Hieronder staan de achtergrond instellingen.
     </script>
-    <br>
-    <br>
     <h1 id="Instellingen">Instellingen</h1>
     <h3 id="AG">Achtergrond</h3>
  
@@ -127,7 +125,12 @@
     <button class="pinkButton" type="button" onClick="startstopDisco(false);bgPink()">Roze</button>
    
     <button class="discoButton" type="button" onClick="startstopDisco(true)">Disco</button>
- 
+   
+    <h3 id="AG">Type cookie</h3>
+    <button class="whiteButton" type="button" onClick="document.getElementById('imageid').src='https://cdn.shopify.com/s/files/1/1540/1281/products/oatmeal-raisin_358906fe-5909-4a1a-b3d9-ebb53b0df2ab_2048x.png?v=1530817809'">Rozijnen koekje</button>
+    <button class="whiteButton" type="button" onClick="document.getElementById('imageid').src='http://www.pngall.com/wp-content/uploads/2016/07/Cookie-PNG-Image.png'">Chocolade koekje</button>
+    <button class="whiteButton" type="button" onClick="document.getElementById('imageid').src='http://pixelartmaker.com/art/794909cfeff2fe7.png'">Minecraft koekje</button>
+   
     <script type="text/javascript">
         function bgStandaard() {
             document.body.style.backgroundColor = "#B46A57";
@@ -212,12 +215,9 @@
             }
         }
     </script>
-<br>
-<br>
-<div id="spoiler" style="display:none">
-Made by Oom_Dagobert and Special thanks to SBDeveloper
-</div>
-<button title="Click to Show/Hide Content" type="button" onclick="if(document.getElementById('spoiler') .style.display=='none') {document.getElementById('spoiler') .style.display=''}else{document.getElementById('spoiler') .style.display='none'}">Spoiler Credits</button>
-    <p>&copy; 2019 CookieClicker.ga<p>
+    <p>&copy; 2019 CookieClicker.ga<p><button id="creditbutton" type="button" onclick="getElementById('spoiler').style.display = 'block'; this.style.display = 'none'">Credits</button>
+    <div id="spoiler" style="display:none">
+    <b>Made by Oom_Dagobert! Special thanks to SBDeveloper for the disco background and saving the cookies.</b>
+    </div>
 </body>
 </html>
