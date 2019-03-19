@@ -1,161 +1,223 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cookie Clicker.ga</title>
-    <link type="stylesheet/css" rel="stylesheet" href="style.css"/>
-    <script language="javascript">
-    </script>
-      <style>
-body {
-  background-color: #B46A57;
-  text-align: center;
-  color: white;
-}
-
-/* Style the element with the id "myHeader" */
-#Welkom {
-  background-color: orange;
-  color: black;
-  padding: 30px;
-  text-align: center;
-}
-#Instellingen {
-  background-color: orange;
-  color: black;
-  padding: 20px;
-  text-align: center;
-}
-#AG {
-  background-color: orange;
-  color: black;
-  padding: 7px;
-  text-align: center;
-}
-
-</style>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="https://lwszolek.weebly.com/uploads/5/3/1/1/53114231/5840351.png?250">
+    <title>Cookie Clicker</title>
+    <style>
+        body {
+            background-color: #B46A57;
+            text-align: center;
+            color: white;
+        }
+       
+        #Welkom {
+            background-color: orange;
+            color: black;
+            padding: 30px;
+            text-align: center;
+        }
+       
+        #Instellingen {
+            background-color: orange;
+            color: black;
+            padding: 20px;
+            text-align: center;
+        }
+       
+        #AG {
+            background-color: orange;
+            color: black;
+            padding: 7px;
+            text-align: center;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://lwszolek.weebly.com/uploads/5/3/1/1/53114231/5840351.png?250">
 </head>
+ 
 <body>
-    
     <h1 id="Welkom">Cookie Clicker</h1>
-    
+ 
     <h1 id="CookieAmount"></h1>
     <h2 id="CookiePerSecond"></h2>
-    <div id="cookie" style="cursor:pointer" onclick="cookieClicked();"><img     src="https://lwszolek.weebly.com/uploads/5/3/1/1/53114231/5840351.png?250" height="250px"></div>
-    <!--Tells player how much upgrade Costs-->
-    <br>
-    <br>
+    <div id="cookie" style="cursor:pointer" onclick="cookieClicked();"><img src="https://lwszolek.weebly.com/uploads/5/3/1/1/53114231/5840351.png?250" height="250px"></div>
+    <br><br>
     <button onclick="getAutoClicker();">Upgrade CPS voor <span id="AutoClickCookieCost"></span> koekjes</button>
     <p>Gebruik de knop hierboven om het aantal automatische koekjes per seconde te upgraden.<br> U kunt dit kopen voor het aantal koekjes wat op de knop vermeld staat.</p>
-    
-    
-    <div>
-   <script language="javascript">
-    //variables:
-    var cookieClicks = 0;
-    var clickValue = 1
+    <script language="javascript">
+        //Cookie loader
+        function getCookieValue(a) {
+            var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+            return b ? b.pop() : '';
+        }
+ 
+        //cookieclickers loader from cookie
+        var cookieClicks = 0;
+        if (document.cookie.indexOf("cookiesclicked=") >= 0) {
+            cookieClicks = parseInt(getCookieValue("cookiesclicked"));
+        }
+ 
+        //Autoclicker loader from cookie
+        var AutoClickers = 0;
+        if (document.cookie.indexOf("autoclickers=") >= 0) {
+            AutoClickers = parseFloat(getCookieValue("autoclickers"));
+        }
+        var AutoClickerCost = 50;
+        if (document.cookie.indexOf("autoclickerskost=") >= 0) {
+            AutoClickerCost = parseFloat(getCookieValue("autoclickerskost"));
+        }
        
-    var AutoClickers = 0;
-    var AutoClickerCost = 50;
+        //Processes cookie click and adds it to total.
+        function cookieClicked() {
+            cookieClicks++;
+            document.cookie = "cookiesclicked=" + cookieClicks;
+        }
        
-    var Grandmas = 0;
-    var GrandmaCost= 500;
+        //Purchases Auto Clicker for Player and removes Cookies.
+        function getAutoClicker() {
+            if (cookieClicks >= AutoClickerCost) {
+                AutoClickers++;
+                document.cookie = "autoclickers=" + AutoClickers;
+                cookieClicks -= AutoClickerCost;
+                AutoClickerCost += Math.floor(AutoClickerCost * .3);
+                document.cookie = "autoclickerskost=" + AutoClickerCost;
+            } else {
+                alert("Je hebt niet genoeg CPS om te upgraden! Upgraden kost " + AutoClickerCost + " clicks, en je hebt nu maar " + (cookieClicks) + " clicks!")
+            }
+        }
+ 
+        //Update de autoclickers
+        var AutoClickTimer = setInterval(function() {
+            AutoClickCookie()
+        }, 2000);
+ 
+        function AutoClickCookie() {
+            cookieClicks += AutoClickers;
+            document.cookie = "cookiesclicked=" + cookieClicks;
+        }
        
-    var Farms = 0;
-    var FarmCost = 2500
-    
-    var Factories = 0;
-    var FactoryCost = 5000;
-       
-    var Mines = 0;
-    var MineCost = 10000;
-       //Processes cookie click and adds it to total.
-    function cookieClicked() {
-        cookieClicks++;
-    }
-       //Purchases Auto Clicker for Player and removes Cookies.
-       function getAutoClicker(){
-           if(cookieClicks >= AutoClickerCost){
-               AutoClickers++;
-               cookieClicks -= AutoClickerCost;
-               AutoClickerCost += Math.floor(AutoClickerCost*.3);
-           }else{
-               alert("Oeps!  Het lijkt er op dat je niet genoeg koekjes hebt om je CPS te upgraden. Het upgraden van je CPS kost "+AutoClickerCost+" wat "+(AutoClickerCost-cookieClicks)+" meer is dan dat je nu hebt.")
-           }
-       }
-
-       //Main Game loop updating Cookie Totals from AUTOCLICKER ONLY!
-var AutoClickTimer = setInterval(function () {AutoClickCookie()}, 2000);
-       function AutoClickCookie(){
-           cookieClicks += AutoClickers;
-       }
-       //Main Game loop update Cookie Totals from ALL OTHER STRUCUTERS.
-var AllStructureTimer = setInterval(function(){StructureCookie},1000)
-    function StructureCookie(){
-           cookieClicks += (Grandmas*10);
-           cookieClicks += (Farms*20);
-           cookieClicks += (Factories*70);
-           cookieClicks += (Mines*100);
-    }
-        //Side Loop updating button costs and CPS
-       var CookieClickTimer = setInterval(function() {updateCookie()}, 100);
-       function updateCookie(){
-           //Calculate CPS
-           var CPS = (AutoClickers*.5)+(Grandmas*10)+(Farms*20)+(Factories*70)+(Mines*100);
-            document.getElementById("CookieAmount").innerHTML = cookieClicks+" koekjes";
-            document.getElementById("CookiePerSecond").innerHTML = CPS+" CPS";
+        //Update de website variables
+        var CookieClickTimer = setInterval(function() {
+            updateCookie()
+        }, 100);
+ 
+        function updateCookie() {
+            //Calculate CPS
+            var CPS = (AutoClickers * .5);
+            document.getElementById("CookieAmount").innerHTML = cookieClicks + " koekjes";
+            document.getElementById("CookiePerSecond").innerHTML = CPS + " CPS";
             document.getElementById("AutoClickCookieCost").innerHTML = AutoClickerCost;
-            document.getElementById("GrandmaCookieCost").innerHTML = GrandmaCost;
-            document.getElementById("FarmCookieCost").innerHTML = FarmCost;
-            document.getElementById("FactoryCookieCost").innerHTML = FactoryCost;
-            document.getElementById("MineCookieCost").innerHTML = MineCost;
-       }
-
+        }
+ 
         //Hieronder staan de achtergrond instellingen.
-</script>
-    </div>
+    </script>
     <br>
     <br>
     <h1 id="Instellingen">Instellingen</h1>
     <h3 id="AG">Achtergrond</h3>
-    	</script>
-	
-	
-	
-	        <button class ="whiteButton" type ="button" onClick="bgStandaard()">Standaard</button>
-	        <button class ="whiteButton" type ="button" onClick="bgBlack()">Zwart</button>
-        
-        <button class="maroonButton" type ="button" onClick="bgMaroon ()">Rood</button>
-        
-        <button class ="blueButton" type ="button" onClick="bgBlue()">Blauw</button>
-        
-        <button class ="greenButton" type ="button" onClick="bgGreen()">Groen</button>
-        
-        <button class ="pinkButton" type ="button" onClick="bgPink()">Roze</button>
-        
-        
-        
-        <script type="text/javascript">
-        function bgStandaard () {
-        document.body.style.backgroundColor = "#B46A57";
+ 
+    <button class="whiteButton" type="button" onClick="startstopDisco(false);bgStandaard()">Standaard</button>
+    <button class="whiteButton" type="button" onClick="startstopDisco(false);bgBlack()">Zwart</button>
+ 
+    <button class="maroonButton" type="button" onClick="startstopDisco(false);bgMaroon()">Rood</button>
+ 
+    <button class="blueButton" type="button" onClick="startstopDisco(false);bgBlue()">Blauw</button>
+ 
+    <button class="greenButton" type="button" onClick="startstopDisco(false);bgGreen()">Groen</button>
+ 
+    <button class="pinkButton" type="button" onClick="startstopDisco(false);bgPink()">Roze</button>
+   
+    <button class="discoButton" type="button" onClick="startstopDisco(true)">Disco</button>
+ 
+    <script type="text/javascript">
+        function bgStandaard() {
+            document.body.style.backgroundColor = "#B46A57";
         }
-        function bgBlack () {
-        document.body.style.backgroundColor = "Black";
+ 
+        function bgBlack() {
+            document.body.style.backgroundColor = "Black";
         }
-        function bgMaroon () {
-        document.body.style.backgroundColor = "maroon";
+ 
+        function bgMaroon() {
+            document.body.style.backgroundColor = "maroon";
         }
-        function bgBlue () {
-        document.body.style.backgroundColor = "darkblue";
+ 
+        function bgBlue() {
+            document.body.style.backgroundColor = "darkblue";
         }
-        function bgGreen () {
-        document.body.style.backgroundColor = "darkgreen";
+ 
+        function bgGreen() {
+            document.body.style.backgroundColor = "darkgreen";
         }
-        function bgPink () {
-        document.body.style.backgroundColor = "	deeppink";
+ 
+        function bgPink() {
+            document.body.style.backgroundColor = " deeppink";
         }
-        </script>
-        <p>&copy; 2019 CookieClicker.ga<p>
+       
+        /* FROM: Stijn Bannink || SOURCE: https://www.codingforums.com/javascript-programming/182714-disco-background-effect-work-text-images.html */
+        var steps = 50;
+        var speed = 50;
+        var tt;
+        var ck = steps;
+        var oz = 'rgb(' + newColor() + ',' + newColor() + ',' + newColor() + ')';
+       
+        var started = false;
+       
+        function startstopDisco(start) {
+            if (start == true) {
+                if (started == false) {
+                    if (typeof e === 'undefined') {
+                        bgDisco(oz);
+                    } else {
+                        fade();
+                    }
+                    started = true;
+                }
+            } else {
+                if (started == true) {
+                    clearTimeout(tt);
+                    started = false;
+                }
+            }
+        }
+ 
+        function newColor() {
+            return Math.round(Math.random() * 255)
+        }
+ 
+        function dif(a, b) {
+            return (Number(b) + Number(a))
+        }
+ 
+        function bgDisco(z) {
+            oz = 'rgb(' + newColor() + ',' + newColor() + ',' + newColor() + ')';
+            n = oz.substring(4, oz.length - 1).split(',');
+            document.body.style.backgroundColor = z;
+            o = z.substring(4, z.length - 1).split(',');
+            e = [Math.round((n[0] - o[0]) / steps), Math.round((n[1] - o[1]) / steps), Math.round((n[2] - o[2]) / steps)];
+            tt = setTimeout("fade()", speed)
+        }
+ 
+        function fade() {
+            d = [dif(e[0], o[0]), dif(e[1], o[1]), dif(e[2], o[2])]
+            z = 'rgb(' + d[0] + ',' + d[1] + ',' + d[2] + ')';
+            tz = 'rgb(' + (255 - d[0]) + ',' + (255 - d[1]) + ',' + (255 - d[2]) + ')'
+            document.body.style.backgroundColor = z;
+            o = z.substring(4, z.length - 1).split(',');
+            ck--;
+            if (ck != 0) {
+                tt = setTimeout("fade()", speed)
+            } else {
+                ck = steps;
+                bgDisco(z)
+            }
+        }
+    </script>
+<br>
+<br>
+<div id="spoiler" style="display:none">
+Made by Oom_Dagobert and Special thanks to SBDeveloper
+</div>
+<button title="Click to Show/Hide Content" type="button" onclick="if(document.getElementById('spoiler') .style.display=='none') {document.getElementById('spoiler') .style.display=''}else{document.getElementById('spoiler') .style.display='none'}">Spoiler Credits</button>
+    <p>&copy; 2019 CookieClicker.ga<p>
 </body>
 </html>
