@@ -2,10 +2,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <title>Cookie Clicker</title>
+<meta name="description" content="Cookie Clicker. Play Now!">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
 body {font-size:16px;}
@@ -192,11 +194,11 @@ Click on the button of the desiwhite theme
   </div>
 
 						<div class="bottom_wrapper clearfix">
-							<div class="text-left">
+							<div class="text-center">
 							<div class="btn-group flex-wrap" data-toggle="buttons">
 							<button class="btn btn-light" type="button" onClick="startstopDisco(false);bgStandaard()">Standard</button>
 							<button class="btn btn-dark" type="button" onClick="startstopDisco(false);bgZwart()">Black</button>
-							<button class="btn btn-danger" type="button" onClick="startstopDisco(false);bgRood()">white</button>
+							<button class="btn btn-danger" type="button" onClick="startstopDisco(false);bgRood()">Red</button>
 							<button class="btn btn-primary" type="button" onClick="startstopDisco(false);bgBlauw()">Blue</button>
 							<button class="btn btn-success" type="button" onClick="startstopDisco(false);bgGroen()">Green</button>
 							<button class="btn btn-info" type="button" onClick="startstopDisco(true)">Disco</button>
@@ -232,7 +234,7 @@ Click on the button of the desiwhite theme
        
         /* FROM: SBDeveloper|| SOURCE: https://www.codingforums.com/javascript-programming/182714-disco-background-effect-work-text-images.html */
         var steps = 50;
-        var speed = 50;
+        var speed = 40;
         var tt;
         var ck = steps;
         var oz = 'rgb(' + newColor() + ',' + newColor() + ',' + newColor() + ')';
