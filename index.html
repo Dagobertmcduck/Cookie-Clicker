@@ -1,41 +1,133 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Cookie Clicker</title>
+<title>CookieClicker.ga</title>
+
+<meta name="description" content="Cookie Clicker! Play now!">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="https://lwszolek.weebly.com/uploads/5/3/1/1/53114231/5840351.png?250">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
     <style>
         body {
-            background-color: #B46A57;
+            background-color: #21618C;
             text-align: center;
             color: white;
         }
-       
-        #Instellingen {
-            background-color: orange;
-            color: black;
-            padding: 20px;
-            text-align: center;
-        }
-       
-        #AG {
-            background-color: orange;
-            color: black;
-            padding: 7px;
-            text-align: center;
-        }
     </style>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="https://lwszolek.weebly.com/uploads/5/3/1/1/53114231/5840351.png?250">
+
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #222;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 120px}
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+</style>
+
+<!-- Icons navigatie menu -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+  <!-- Avatar image in top left corner -->
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-light-black">
+    <i class="fa fa-home w3-xxlarge"></i>
+    <p>HOME</p>
+  </a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-light-black">
+    <i class="fa fa-gamepad w3-xxlarge"></i>
+    <p>COOKIE CLICKER</p>
+  </a>
+  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-light-black">
+    <i class="fa fa-question w3-xxlarge"></i>
+    <p>ABOUT</p>
+  </a>
+  <a href="#settings" class="w3-bar-item w3-button w3-padding-large w3-hover-light-black">
+    <i class="fa fa-cog w3-xxlarge"></i>
+    <p>SETTINGS</p>
+  </a>
+</nav>
+
+<!-- Navigatie menu -->
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+</style>
 </head>
- 
 <body>
+
 <br>
-<img src="https://i.imgur.com/AyoCl3a.png" height="150px">
+<img src="https://i.imgur.com/P1FSAEG.png" height="150px">
+
+
+
     <h1 id="CookieAmount"></h1>
     <h2 id="CookiePerSecond"></h2>
-    <div id="cookie" style="cursor:pointer" onclick="cookieClicked();"><img id="imageid" src="https://cdn.shopify.com/s/files/1/1540/1281/products/oatmeal-raisin_358906fe-5909-4a1a-b3d9-ebb53b0df2ab_2048x.png?v=1530817809" height="200px"></div>
+    <div id="cookie" style="cursor:pointer" onclick="cookieClicked();"><img id="imageid" src="https://lwszolek.weebly.com/uploads/5/3/1/1/53114231/5840351.png?250" height="200px"></div>
     <br>
-    <button onclick="getAutoClicker();">Upgrade CPS voor <span id="AutoClickCookieCost"></span> koekjes</button>
-    <p>Gebruik de knop hierboven om het aantal automatische koekjes per seconde te upgraden.<br> U kunt dit kopen voor het aantal koekjes wat op de knop vermeld staat.</p>
+    <button onclick="getAutoClicker();">Add an AutoClicker for <span id="AutoClickCookieCost"></span> cookies</button>
+    <br>
+    <h5><br>{Use the button above to buy an extra autoclicker}</5>
+    
+    
     <script language="javascript">
         //Cookie loader
         function getCookieValue(a) {
@@ -74,7 +166,7 @@
                 AutoClickerCost += Math.floor(AutoClickerCost * .3);
                 document.cookie = "autoclickerskost=" + AutoClickerCost;
             } else {
-                alert("Je hebt niet genoeg koekjes om te upgraden! Upgraden kost " + AutoClickerCost + " koekjes, en je hebt nu maar " + (cookieClicks) + " koekjes!")
+                alert("You need  " + AutoClickerCost + " cookies to buy a autoclicker. You currently have " + (cookieClicks) + " cookies!")
             }
         }
  
@@ -95,58 +187,62 @@
  
         function updateCookie() {
             //Calculate CPS
-            var CPS = (AutoClickers * .5);
-            document.getElementById("CookieAmount").innerHTML = cookieClicks + " koekjes";
-            document.getElementById("CookiePerSecond").innerHTML = CPS + " CPS";
+            var CPS = (AutoClickers * 1);
+            document.getElementById("CookieAmount").innerHTML = cookieClicks + " cookies";
+            document.getElementById("CookiePerSecond").innerHTML = CPS + " Auto Clicker(s)";
             document.getElementById("AutoClickCookieCost").innerHTML = AutoClickerCost;
         }
  
         //Hieronder staan de achtergrond instellingen.
     </script>
-<h2>Instellingen</h2>
-    <h3 id="AG">Achtergrond</h3>
- 
-    <button class="whiteButton" type="button" onClick="startstopDisco(false);bgStandaard()">Standaard</button>
-    <button class="whiteButton" type="button" onClick="startstopDisco(false);bgBlack()">Zwart</button>
- 
-    <button class="maroonButton" type="button" onClick="startstopDisco(false);bgMaroon()">Rood</button>
- 
-    <button class="blueButton" type="button" onClick="startstopDisco(false);bgBlue()">Blauw</button>
- 
-    <button class="greenButton" type="button" onClick="startstopDisco(false);bgGreen()">Groen</button>
- 
-    <button class="pinkButton" type="button" onClick="startstopDisco(false);bgPink()">Roze</button>
-   
-    <button class="discoButton" type="button" onClick="startstopDisco(true)">Disco</button>
-   
-    <h3 id="AG">Type cookie</h3>
-    <button class="whiteButton" type="button" onClick="document.getElementById('imageid').src='https://cdn.shopify.com/s/files/1/1540/1281/products/oatmeal-raisin_358906fe-5909-4a1a-b3d9-ebb53b0df2ab_2048x.png?v=1530817809'">Rozijnen koekje</button>
-    <button class="whiteButton" type="button" onClick="document.getElementById('imageid').src='https://lwszolek.weebly.com/uploads/5/3/1/1/53114231/5840351.png?250'">Chocolade koekje</button>
-    <button class="whiteButton" type="button" onClick="document.getElementById('imageid').src='http://pixelartmaker.com/art/794909cfeff2fe7.png'">Minecraft koekje</button>
-    <button class="whiteButton" type="button" onClick="document.getElementById('imageid').src='http://pluspng.com/img-png/cookie-monster-png-hd-cookie-monster-by-neorame-894.png'">Cookie Monster</button>
-    <button class="whiteButton" type="button" onClick="document.getElementById('imageid').src='https://pngimage.net/wp-content/uploads/2018/06/stroopwafel-png-4.png'">Stroop Wafel</button>
-    <button class="whiteButton" type="button" onClick="document.getElementById('imageid').src='http://pluspng.com/img-png/oreo-png-hd-oreo-png-299.png'">Oreo</button>
-    <button class="whiteButton" type="button" onClick="document.getElementById('imageid').src='https://polkatheatre.com/wp-content/uploads/2018/10/Gingerbread-PNG.png'">Gingerbread Pop</button>
-    <button class="whiteButton" type="button" onClick="document.getElementById('imageid').src='https://peijnenburg.nl/wp-content/uploads/sites/3/2018/03/cook-640x549.png'">Ontbijtkoek</button>
-    <button class="whiteButton" type="button" onClick="document.getElementById('imageid').src='https://www.plus.nl/INTERSHOP/static/WFS/PLUS-Site/-/PLUS/nl_NL/product/L/520780.png'">Frikandelbroodje</button>
-    <script type="text/javascript">
+  
+<div class="w3-content w3-justify w3-text-white w3-padding-64" id="about">
+<h1>About Cookie Clicker     <i class="fa fa-question-circle w3-xxlarge"></i></h1><h4>Cookie Clicker is one of the best online games. It is a game where you have to click on a cookie. Ultimately, you have enough cookies to buy on an autoclicker. This autoclicker will add 1 free cookie every second. The goal is to get as many cookies as possible. To speed up the process, the second goal of the game is to get as many autoclickers as possible!
+<br>
+<br>
+Have Fun!
+</h4>
+
+<div class="w3-content w3-justify w3-text-white w3-padding-64" id="settings">
+<h1>Settings     <i class="fa fa-cog w3-xxlarge"></i></h1>
+<h4>
+Customsize your cookieclicker game. Change the background to the color you want! Or even change the cookie to the theme that you like the most!
+
+Click on the button of the desired theme</h4>
+<br>
+<h4>Customsize your background:</h4>
+						<div class="bottom_wrapper clearfix">
+							<div class="text-left">
+							<div class="btn-group flex-wrap" data-toggle="buttons">
+							<button class="btn btn-light" type="button" onClick="startstopDisco(false);bgStandaard()">Standard</button>
+							<button class="btn btn-dark" type="button" onClick="startstopDisco(false);bgZwart()">Black</button>
+							<button class="btn btn-danger" type="button" onClick="startstopDisco(false);bgRood()">Red</button>
+							<button class="btn btn-primary" type="button" onClick="startstopDisco(false);bgBlauw()">Blue</button>
+							<button class="btn btn-success" type="button" onClick="startstopDisco(false);bgGroen()">Green</button>
+							<button class="btn btn-info" type="button" onClick="startstopDisco(true)">Disco</button>
+							</div>
+							</div>
+						</div>
+					</div>
+	
+	    <script type="text/javascript">
         function bgStandaard() {
-            document.body.style.backgroundColor = "#B46A57";
+            document.body.style.backgroundColor = "#21618C";
         }
  
-        function bgBlack() {
+        function bgZwart() {
             document.body.style.backgroundColor = "Black";
         }
  
-        function bgMaroon() {
+        function bgRood() {
             document.body.style.backgroundColor = "maroon";
         }
  
-        function bgBlue() {
+        function bgBlauw() {
             document.body.style.backgroundColor = "darkblue";
         }
  
-        function bgGreen() {
+        function bgGroen() {
             document.body.style.backgroundColor = "darkgreen";
         }
  
@@ -213,9 +309,45 @@
             }
         }
     </script>
-    <p>&copy; 2019 CookieClicker.ga<p><button id="creditbutton" type="button" onclick="getElementById('spoiler').style.display = 'block'; this.style.display = 'none'">Credits</button>
-    <div id="spoiler" style="display:none">
-    <b>Made by Oom_Dagobert! Met speciale dank aan SBDeveloper voor de disco-achtergrond en het opslaan van de cookies.</b>
-    </div>
+   
+<h4>Customsize your cookie:</h4>
+<button class="whiteButton" type="button" onClick="document.getElementById('imageid').src='https://lwszolek.weebly.com/uploads/5/3/1/1/53114231/5840351.png?250'">Chocolate Cookie</button>
+    <button class="whiteButton" type="button" onClick="document.getElementById('imageid').src='http://pixelartmaker.com/art/794909cfeff2fe7.png'">Minecraft Cookie</button>
+    <button class="whiteButton" type="button" onClick="document.getElementById('imageid').src='https://cdn0.iconfinder.com/data/icons/bakery-10/512/Cookie-512.png'">Cartoon Cookie</button>
+    <button class="whiteButton" type="button" onClick="document.getElementById('imageid').src='http://pluspng.com/img-png/oreo-png-hd-oreo-png-299.png'">Oreo Cookie</button>
+
+
+
+
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+
+                    <!-- NOT IN USE!
+
+                     <ul class="list-inline mb-2">
+
+                             <li class="list-inline-item">
+
+                               <a href="#">About</a>
+
+                             </li>
+
+                             <li class="list-inline-item">&sdot;</li>
+
+                           </ul>-->
+
+
+                </div>
+
+
+
+    </footer>
+
 </body>
 </html>
